@@ -7,37 +7,58 @@ ObjectId = mongoose.Types.ObjectId
 cleanDatabase = require './clean-database'
 
 index = require '../../lib/index'
-SampleUsers = require './sample-users'
+
+addTestData = (model,cb) ->
+  x = []
+
+  for i in [1..100]
+    x.push
+      name : "Name: #{i}"
+      n : i
+
+  addOne = (item,cb) ->
+    m = new  model item
+    m.save cb
+
+  async.forEachSeries x, addOne, cb
+
+
+TestSchema = new mongoose.Schema
+      name :
+        type: String
+      n:
+        type: Number
+      arrayOfStrings:
+        type: [String]
+        default: () -> []
+      aDate :
+        type: Date
+        default: () -> new Date()
+  , strict: true
+
 
 class Helper
   loggingEnabled: false
-  accountId : '52998e1c32e5724771000009'
   database :  'mongodb://localhost/codedoctor-test'
-  collections: ['oauthaccesstokens','oauthapps','oauthclients','organizations','users']
+  collections: ['tests']
 
-  start: (obj = {}, done = ->) =>
+  start: (obj = {}, cb = ->) =>
     _.defaults obj, 
       cleanDatabase : true
 
     mongoose.connect @database
     @mongo = mongoskin.db @database, safe:false
-    @store = index.store()
 
-    tasks = []
-
-    cleanDatabase @mongo,@database,@loggingEnabled, (err) =>
-      done()
+    cleanDatabase @mongo,@database,@collections,@loggingEnabled, (err) =>
+      @testModel = mongoose.model "Test", TestSchema
+      addTestData @testModel,cb
 
 
-  stop: (done = ->) =>
+  stop: (cb = ->) =>
     mongoose.disconnect (err) =>
-      done()
+      cb()
 
-  addSampleUsers: (cb) =>
-    x = new SampleUsers(@mongo)
-    x.setup(cb)
-    x
-
+ 
   log: (obj) =>
     console.log ""
     console.log "+++++++++"

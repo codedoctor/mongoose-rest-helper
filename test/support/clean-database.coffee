@@ -1,9 +1,7 @@
 async = require 'async'
 
 
-collections =  ['oauthaccesstokens','oauthapps','oauthclients','organizations','users']
-
-module.exports = (mongo,databaseName,loggingEnabled,cb) ->
+module.exports = (mongo,databaseName,collections = [],loggingEnabled,cb) ->
   if loggingEnabled
     console.log "" 
     console.log "CLEANING Database #{databaseName}"
