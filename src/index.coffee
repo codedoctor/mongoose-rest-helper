@@ -12,7 +12,14 @@ module.exports =
   ###
   Query for a paged result against a collection.
   ###
-  all:(model,baseQuery = {},defaultSort = null,defaultSelect = null,defaultCount = 20,options = {}, cb = ->) =>
+  all:(model,settings = {},options = {}, cb = ->) =>
+
+    baseQuery = settings.baseQuery || {}
+    defaultSort = settings.defaultSort || null
+    defaultSelect = settings.defaultSelect || null
+    defaultCount = settings.defaultCount || 20
+
+
     return cb new Error "model parameter is required." unless model
 
     if _.isFunction(options)

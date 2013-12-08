@@ -12,7 +12,7 @@ npm install mongoose-rest-helper
 
 NOTE - THIS IS VERY SPECIFIC TO OUR APPS
 
-### 0.1.0
+### 0.1.1
 * First version
 
 ## Stuff
