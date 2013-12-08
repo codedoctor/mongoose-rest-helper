@@ -13,7 +13,7 @@ addTestData = (model,cb) ->
 
   for i in [1..100]
     x.push
-      name : "Name: #{i}"
+      name : "Name #{i}"
       n : i
 
   addOne = (item,cb) ->

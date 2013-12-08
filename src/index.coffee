@@ -23,7 +23,7 @@ module.exports =
     options.select ||= defaultSelect
 
     for k, v of baseQuery
-      options.where.k = v
+      options.where[k] = v
 
     model.count options.where,(err, totalCount) ->
       return cb err if err
