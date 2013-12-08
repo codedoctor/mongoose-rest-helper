@@ -5,61 +5,19 @@ TODO:
 * provide a hook to customize the schemas???
 * only expose schemas that need to be exposed.
 
-mongoose-identity-store-multi-tenant
+mongoose-rest-helper
 ===========================
 
-npm install mongoose-identity-store-multi-tenant
+npm install mongoose-rest-helper
 
-NOTE - THIS IS EXPERIMENTAL.
+NOTE - THIS IS VERY SPECIFIC TO OUR APPS
 
-
-A bunch of mongoose schemas to implement identity management (users, accesstokens, oauth apps)
-
-This is a work in progress, and some indexes need to be defined. You have been warned
-
-## Release Notes
-### 0.3.5
-sarcasm: exporting the Role schema might be helpful too.
-
-### 0.3.4
-exposed role management methods
-
-### 0.3.3
-updated versions
-allow for models to be created from connections
-
-### 0.3.2
-Bug fix: On creation of a facebook account that has an invalid email address don't blow up.
-Reason: If a user has a facebook account associated with an invalid address facebook returns a bogus record...
-
-### 0.3.1
-Added autoIndex option to store creation, defaults to true. Updated dependencies
-
-### 0.3.0
-Bumped some of deps up, especially mongoose
-
-### 0.2.7
-Added retrieval of users by usernames
-
-### 0.2.6
-Added lookup method for fast mention lookup to users.
-
-### 0.2.5
-bcrypt update, fixes memory leak or so they say
-
-### 0.2.4
-Added tests, and getByIds
-
-### 0.2.3
-destroy paranoid users too
-
-### 0.2.2
-added user.destroy
-
-### 0.2.0
+### 0.1.0
 * First version
 
 ## Stuff
+
+./bin/watch
 
 npm test
 npm run-script docs
@@ -73,7 +31,7 @@ node_modules/.bin/grunt release:major
 
 
 
-## Contributing to mongoose-identity-store
+## Contributing to mongoose-rest-helper
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -85,7 +43,7 @@ node_modules/.bin/grunt release:major
 
 ## Copyright
 
-Copyright (c) 2012 Martin Wawrusch See LICENSE for
+Copyright (c) 2013 Martin Wawrusch See LICENSE for
 further details.
 
 

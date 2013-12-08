@@ -1,10 +1,9 @@
 ###
-Storage functionality for modeista-identity
+Smart helper functions.
 ###
 
-Store = require './store'
-
 module.exports =
-  Store: Store
-  store: (settings = {}) ->
-    new Store(settings)
+  all: (cb) ->  
+    cb null
+
+

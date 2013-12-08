@@ -1,0 +1,7 @@
+#!/bin/bash
+
+BASEDIR=$(dirname $0)
+echo $BASEDIR
+pushd $BASEDIR/..
+./node_modules/.bin/coffee -c -w  -o lib src
+popd

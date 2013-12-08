@@ -6,5 +6,3 @@ describe 'WHEN loading the module', ->
 
   it 'should exist', ->
     should.exist index
-  it 'should instantiate a store', ->
-    should.exist index.store()
