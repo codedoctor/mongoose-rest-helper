@@ -25,7 +25,7 @@ module.exports =
     for k, v of baseQuery
       options.where.k = v
 
-    model.count options.where,(err, totalCount) =>
+    model.count options.where,(err, totalCount) ->
       return cb err if err
 
       query = model.find options.where
@@ -34,7 +34,7 @@ module.exports =
       options.count ||= defaultCount
       query.setOptions { skip: options.offset, limit: options.count}
       query.sort options.sort || defaultSort
-      query.exec (err, items) =>
+      query.exec (err, items) ->
         return cb err if err
         cb null, new PageResult(items || [], totalCount, options.offset, options.count)
 
