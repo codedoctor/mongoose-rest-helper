@@ -1,6 +1,7 @@
 _ = require 'underscore'
 should = require 'should'
 helper = require './support/helper'
+index = require '../lib/index'
 
 describe 'all-test', ->
   before (cb) ->
@@ -11,4 +12,7 @@ describe 'all-test', ->
 
   describe 'when invoking all with all default settings', ->
     it 'should return a dataset', (cb) ->
-      cb null
+      index.all helper.testModel,{},null,null,20,{}, (err,pageResult) ->
+        console.log JSON.stringify pageResult
+        should.exist pageResult
+        cb err

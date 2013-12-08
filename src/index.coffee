@@ -13,7 +13,7 @@ module.exports =
   Query for a paged result against a collection.
   ###
   all:(model,baseQuery = {},defaultSort = null,defaultSelect = null,defaultCount = 20,options = {}, cb = ->) =>
-    return cb new Error "accountId parameter is required." unless accountId
+    return cb new Error "model parameter is required." unless model
 
     if _.isFunction(options)
       cb = options 
