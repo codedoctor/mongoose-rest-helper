@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "email-schema.js",
+  "sourceRoot": "../../src/schemas/",
+  "sources": [
+    "email-schema.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;CAAA,KAAA,eAAA;;CAAA,CAAA,CAAW,IAAA,CAAX,EAAW;;CAAX,CAEA,CAAiB,CAAkB,EAA7B,CAAN,CAA2C,GAA1B;CACf,CACE,EADF,CAAA;CACE,CAAM,EAAN,EAAA;CAAA,CACQ,EADR,EACA;CADA,CAEQ,EAFR,EAEA;MAHF;CAAA,CAKE,EADF,MAAA;CACE,CAAM,EAAN,EAAA,CAAA;MALF;CAAA,CAOE,EADF,aAAA;CACE,CAAM,EAAN,EAAA,CAAA;MAPF;CAHF,GAEmC;CAFnC"
+}

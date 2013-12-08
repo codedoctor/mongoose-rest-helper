@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "user-image-schema.js",
+  "sourceRoot": "../../src/schemas/",
+  "sources": [
+    "user-image-schema.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;CAAA,KAAA,mBAAA;;CAAA,CAAA,CAAW,IAAA,CAAX,EAAW;;CAAX,CAEA,CAAiB,CAAsB,EAAjC,CAAN,CAA+C,OAA9B;CACf,CACE,CADF,CAAA;CACE,CAAO,EAAP,EAAA;MADF;CAHF,GAEuC;CAFvC"
+}
