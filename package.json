@@ -27,6 +27,7 @@
   "dependencies": {
     "underscore": "1.5.2",
     "mongoose": ">=3.6.2",
+    "mongodb-objectid-helper": "0.2.0",
     "underscore-ext": "0.2.0",
     "date-utils": "1.2.14",
     "some-errors": "0.2.0",

@@ -24,9 +24,7 @@
       </ul>
     </nav>
     <div id='search'>
-      <a id='class_list_link' href='class_list.html'>Classes</a>
       <a id='file_list_link' href='file_list.html'>Files</a>
-      <a id='method_list_link' href='method_list.html'>Methods</a>
       <a id='extra_list_link' href='extra_list.html'>Extras</a>
     </div>
   </div>
@@ -121,18 +119,15 @@
 <li>provide a hook to customize the schemas???</li>
 <li>only expose schemas that need to be exposed.</li>
 </ul>
-<h1 id="mongoose-identity-store-multi-tenant">mongoose-identity-store-multi-tenant</h1><p>npm install mongoose-identity-store-multi-tenant</p><p>NOTE - THIS IS EXPERIMENTAL.</p><p>A bunch of mongoose schemas to implement identity management (users, accesstokens, oauth apps)</p><p>This is a work in progress, and some indexes need to be defined. You have been warned</p><h2 id="release-notes">Release Notes</h2>
-<h3 id="0-3-5">0.3.5</h3><p>sarcasm: exporting the Role schema might be helpful too.</p><h3 id="0-3-4">0.3.4</h3><p>exposed role management methods</p><h3 id="0-3-3">0.3.3</h3><p>updated versions
-allow for models to be created from connections</p><h3 id="0-3-2">0.3.2</h3><p>Bug fix: On creation of a facebook account that has an invalid email address don&#39;t blow up.
-Reason: If a user has a facebook account associated with an invalid address facebook returns a bogus record...</p><h3 id="0-3-1">0.3.1</h3><p>Added autoIndex option to store creation, defaults to true. Updated dependencies</p><h3 id="0-3-0">0.3.0</h3><p>Bumped some of deps up, especially mongoose</p><h3 id="0-2-7">0.2.7</h3><p>Added retrieval of users by usernames</p><h3 id="0-2-6">0.2.6</h3><p>Added lookup method for fast mention lookup to users.</p><h3 id="0-2-5">0.2.5</h3><p>bcrypt update, fixes memory leak or so they say</p><h3 id="0-2-4">0.2.4</h3><p>Added tests, and getByIds</p><h3 id="0-2-3">0.2.3</h3><p>destroy paranoid users too</p><h3 id="0-2-2">0.2.2</h3><p>added user.destroy</p><h3 id="0-2-0">0.2.0</h3>
+<h1 id="mongoose-rest-helper">mongoose-rest-helper</h1><p>npm install mongoose-rest-helper</p><p>NOTE - THIS IS VERY SPECIFIC TO OUR APPS</p><h3 id="0-1-0">0.1.0</h3>
 <ul>
 <li>First version</li>
 </ul>
-<h2 id="stuff">Stuff</h2><p>npm test
+<h2 id="stuff">Stuff</h2><p>./bin/watch</p><p>npm test
 npm run-script docs</p><p>node_modules/.bin/grunt                   # Starts the watch &amp; test run
 node_modules/.bin/grunt coffee            # Compiles the coffeescript</p><p>node_modules/.bin/grunt release
 node_modules/.bin/grunt release:minor
-node_modules/.bin/grunt release:major</p><h2 id="contributing-to-mongoose-identity-store">Contributing to mongoose-identity-store</h2>
+node_modules/.bin/grunt release:major</p><h2 id="contributing-to-mongoose-rest-helper">Contributing to mongoose-rest-helper</h2>
 <ul>
 <li>Check out the latest master to make sure the feature hasn&#39;t been implemented or the bug hasn&#39;t been fixed yet</li>
 <li>Check out the issue tracker to make sure someone already hasn&#39;t requested it and/or contributed it</li>
@@ -142,13 +137,13 @@ node_modules/.bin/grunt release:major</p><h2 id="contributing-to-mongoose-identi
 <li>Make sure to add tests for it. This is important so I don&#39;t break it in a future version unintentionally.</li>
 <li>Please try not to mess with the package.json, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.</li>
 </ul>
-<h2 id="copyright">Copyright</h2><p>Copyright (c) 2012 Martin Wawrusch See LICENSE for
+<h2 id="copyright">Copyright</h2><p>Copyright (c) 2013 Martin Wawrusch See LICENSE for
 further details.</p>
       </div>
     </div>
     <div id='footer'>
   Generated on
-  Sun Dec 08 2013 14:46:05 GMT-0800 (PST)
+  Sun Dec 08 2013 14:57:14 GMT-0800 (PST)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.9.0
