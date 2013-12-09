@@ -90,6 +90,24 @@ module.exports =
     query.exec cb
 
   ###
+  Completely removes an element.
+  @TODO We can add a fast mode later that does not query the item first.
+  ###
+  destroy: (model,id, settings = {}, options = {}, cb = ->) =>
+    return cb new Error "model parameter is required." unless model
+    return cb new Error "id parameter is required." unless id
+
+    id = new ObjectId id.toString()
+
+    model.findOne _id : id, (err, item) =>
+      return cb err if err
+      return cb null unless item
+
+      item.remove (err) =>
+        return cb err if err
+        cb null, item
+
+  ###
   Converts a value to an object id. Safety precaution for queries.
   ###
   asObjectId: (id) ->
