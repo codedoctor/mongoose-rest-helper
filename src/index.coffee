@@ -108,6 +108,34 @@ module.exports =
         cb null, item
 
   ###
+  Creates a new object in the  db
+  ###
+  create: (model,settings = {},objs = {},options = {},cb = ->) =>
+    return cb new Error "model parameter is required." unless model
+
+    if _.isFunction(options)
+      cb = options 
+      options = {}
+
+    m = new model objs
+    m.save (err) =>
+      return cb err if err
+      cb null, m,true
+
+  patch: (model,id, settings = {}, obj = {}, options = {}, cb = ->) =>
+    return cb new Error "model parameter is required." unless model
+    return cb new Error "id parameter is required." unless id
+
+    if _.isFunction(options)
+      cb = options 
+      options = {}
+
+    id = new ObjectId id.toString()
+    model.findByIdAndUpdate { _id: id }, { $set: obj}, cb
+
+
+
+  ###
   Converts a value to an object id. Safety precaution for queries.
   ###
   asObjectId: (id) ->
