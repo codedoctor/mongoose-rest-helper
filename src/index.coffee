@@ -13,13 +13,13 @@ module.exports =
   Query for a paged result against a collection.
   ###
   all:(model,settings = {},options = {}, cb = ->) =>
+    return cb new Error "model parameter is required." unless model
 
     baseQuery = settings.baseQuery || {}
     defaultSort = settings.defaultSort || null
     defaultSelect = settings.defaultSelect || null
     defaultCount = settings.defaultCount || 20
 
-    return cb new Error "model parameter is required." unless model
 
     if _.isFunction(options)
       cb = options 
@@ -49,10 +49,10 @@ module.exports =
   Returns a single object through the id
   ###
   getById: (model, id,settings = {}, options = {}, cb = ->) =>
-    defaultSelect = settings.defaultSelect || null
-
     return cb new Error "model parameter is required." unless model
     return cb new Error "id parameter is required." unless id
+
+    defaultSelect = settings.defaultSelect || null
 
     if _.isFunction(options)
       cb = options 
@@ -62,6 +62,30 @@ module.exports =
 
     id = new ObjectId id.toString()
     query = model.findOne _id : id
+    query = query.select(options.select) if options.select && options.select.length > 0
+    query.exec cb
+
+  ###
+  Returns a single object base on query
+  ###
+  getOne: (model,settings = {}, options = {}, cb = ->) =>
+    return cb new Error "model parameter is required." unless model
+
+    defaultSelect = settings.defaultSelect || null
+    baseQuery = settings.baseQuery || {}
+
+
+    if _.isFunction(options)
+      cb = options 
+      options = {}
+
+    options.where ||= {}
+    options.select ||= defaultSelect
+
+    for k, v of baseQuery
+      options.where[k] = v
+
+    query = model.findOne options.where
     query = query.select(options.select) if options.select && options.select.length > 0
     query.exec cb
 
