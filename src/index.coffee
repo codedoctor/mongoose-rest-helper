@@ -19,7 +19,6 @@ module.exports =
     defaultSelect = settings.defaultSelect || null
     defaultCount = settings.defaultCount || 20
 
-
     return cb new Error "model parameter is required." unless model
 
     if _.isFunction(options)
@@ -45,6 +44,26 @@ module.exports =
         return cb err if err
         cb null, new PageResult(items || [], totalCount, options.offset, options.count)
 
+
+  ###
+  Returns a single object through the id
+  ###
+  getById: (model, id,settings = {}, options = {}, cb = ->) =>
+    defaultSelect = settings.defaultSelect || null
+
+    return cb new Error "model parameter is required." unless model
+    return cb new Error "id parameter is required." unless id
+
+    if _.isFunction(options)
+      cb = options 
+      options = {}
+
+    options.select ||= defaultSelect
+
+    id = new ObjectId id.toString()
+    query = model.findOne _id : id
+    query = query.select(options.select) if options.select && options.select.length > 0
+    query.exec cb
 
   ###
   Converts a value to an object id. Safety precaution for queries.
