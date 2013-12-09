@@ -2,7 +2,7 @@
   "author": "Martin Wawrusch <martin@wawrusch.com> (http://martinatsunset.com)",
   "name": "mongoose-rest-helper",
   "description": "A bunch of helpers used to simplify rest development.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
