@@ -122,9 +122,15 @@ module.exports =
       return cb err if err
       cb null, m,true
 
+  ###
+  Performs a selective update of fields present. 
+  @param settings[StringArray] exclude array of field names that are always ignored when updating this 
+  ###
   patch: (model,id, settings = {}, obj = {}, options = {}, cb = ->) =>
     return cb new Error "model parameter is required." unless model
     return cb new Error "id parameter is required." unless id
+
+    delete obj[fieldName] for fieldName in settings.exclude || []
 
     if _.isFunction(options)
       cb = options 
