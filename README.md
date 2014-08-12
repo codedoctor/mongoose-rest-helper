@@ -1,33 +1,25 @@
 [![Build Status](https://travis-ci.org/codedoctor/mongoose-rest-helper.svg?branch=master)](https://travis-ci.org/codedoctor/mongoose-rest-helper)
 [![Coverage Status](https://img.shields.io/coveralls/codedoctor/mongoose-rest-helper.svg)](https://coveralls.io/r/codedoctor/mongoose-rest-helper)
-[![NPM Version](http://img.shields.io/npm/v/mongoose-rest-helper.svg)](https://www.npmjs.org/package/mongoose-rest-helper)
+[![NPM Version](http://img.shields.io/npm/v/mongoose-rest-helper.svg)](https://www.npmjs.org/package//mongoose-rest-helper)
 [![Dependency Status](https://gemnasium.com/codedoctor/mongoose-rest-helper.svg)](https://gemnasium.com/codedoctor/mongoose-rest-helper)
+[![NPM Downloads](http://img.shields.io/npm/dm/mongoose-rest-helper.svg)](https://www.npmjs.org/package/mongoose-rest-helper)
+[![Issues](http://img.shields.io/github/issues/codedoctor/mongoose-rest-helper.svg)](https://github.com/codedoctor/mongoose-rest-helper/issues)
+[![API Documentation](http://img.shields.io/badge/API-Documentation-ff69b4.svg)](http://coffeedoc.info/github/codedoctor/mongoose-rest-helper)
 
+## mongoose-rest-helper
 
-mongoose-rest-helper
-===========================
+Provides some convenience functions that can bridge mongoose and your REST endpoints. Nothing special really.
+
+How to get started:
 
 npm install mongoose-rest-helper
 
-NOTE - THIS IS VERY SPECIFIC TO OUR APPS
-
-### 0.1.1
-* First version
 
 ## Stuff
 
-./bin/watch
-
-npm test
-npm run-script docs
-
-node_modules/.bin/grunt                   # Starts the watch & test run
-node_modules/.bin/grunt coffee            # Compiles the coffeescript
-
-node_modules/.bin/grunt release
-node_modules/.bin/grunt release:minor
-node_modules/.bin/grunt release:major
-
+* npm install
+* grunt watch
+* grunt deploy
 
 
 ## Contributing to mongoose-rest-helper

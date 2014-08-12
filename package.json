@@ -24,19 +24,15 @@
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "async": "0.9.0",
-    "boom": "2.5.1",
-    "date-utils": "1.2.16",
     "hoek": "2.4.1",
     "mongodb-objectid-helper": "0.2.0",
-    "some-errors": "0.2.0",
-    "underscore": "1.6.0",
-    "underscore-ext": "0.2.0"
+    "underscore": "1.6.0"
   },
   "peerDependencies" : {
     "mongoose": ">=3.8.14"
     },
   "devDependencies": {
+    "async": "0.9.0",
     "blanket": "1.1.6",
     "codo": "2.0.9",
     "coffee-script": "1.7.1",
