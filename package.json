@@ -2,7 +2,7 @@
   "author": "Martin Wawrusch <martin@wawrusch.com> (http://martinatsunset.com)",
   "name": "mongoose-rest-helper",
   "description": "A bunch of helpers used to simplify rest development.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
@@ -28,9 +28,9 @@
     "mongodb-objectid-helper": "0.2.0",
     "underscore": "1.6.0"
   },
-  "peerDependencies" : {
+  "peerDependencies": {
     "mongoose": ">=3.8.14"
-    },
+  },
   "devDependencies": {
     "async": "0.9.0",
     "blanket": "1.1.6",
