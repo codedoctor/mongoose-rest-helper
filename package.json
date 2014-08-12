@@ -29,7 +29,6 @@
     "date-utils": "1.2.16",
     "hoek": "2.4.1",
     "mongodb-objectid-helper": "0.2.0",
-    "simple-paginator": "0.2.1",
     "some-errors": "0.2.0",
     "underscore": "1.6.0",
     "underscore-ext": "0.2.0"

@@ -1,14 +1,14 @@
 ###
 Smart helper functions.
 ###
+
 _ = require 'underscore'
 mongoose = require "mongoose"
 ObjectId = mongoose.Types.ObjectId
 {isObjectId} = require 'mongodb-objectid-helper'
-PageResult = require('simple-paginator').PageResult
+PageResult = require './page-result'
 
 module.exports =
-
   ###
   Query for a paged result against a collection.
   ###

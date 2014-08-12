@@ -1,1 +1,1 @@
-window.searchData = [{"t":"src/index.coffee","p":"file/src/index.coffee.html"},{"t":"README.md","p":"extra/README.md.html"}]
+window.searchData = [{"t":"PageResult","p":"class/PageResult.html"},{"t":"src/index.coffee","p":"file/src/index.coffee.html"},{"t":"src/page-result.coffee","p":"file/src/page-result.coffee.html"},{"t":"README.md","p":"extra/README.md.html"},{"t":"PageResult#constructor","p":"class/PageResult.html#constructor-dynamic"}]
