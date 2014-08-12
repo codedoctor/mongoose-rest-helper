@@ -3,7 +3,7 @@ Smart helper functions
 ###
 
 _ = require 'underscore'
-asObjectId = require './as-objectId'
+asObjectId = require './as-objectid'
 Hoek = require 'hoek'
 mongoose = require "mongoose"
 ObjectId = mongoose.Types.ObjectId
