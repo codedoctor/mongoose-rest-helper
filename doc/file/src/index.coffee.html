@@ -53,7 +53,29 @@
     <pre><code class='coffeescript'>{
 
   &#47;*
-  Query for a paged result against a collection.
+  Query against a collection, returns a paginated result.
+  @param model [Object] a mongoose model. Required.
+  @param settings [Object] settings to specify the nature of the query.
+  @param options [Object] consumer overrides for your settings. See below for an explanation of this.
+  @param cb [Function,null] callback invoked after completion.
+  @example
+  This example implements a convenience function that adds a tenant _id to all queries.
+  See how options are passed to this method, and settings are used to configure it.
+  ```coffeescript
+  myClient = 
+    all:(_tenantId,options = {}, cb = -&gt;) =&gt;
+      return cb new Error &quot;_tenantId parameter is required.&quot; unless _tenantId
+  
+      settings = 
+          baseQuery:
+            _tenantId : mongooseRestHelper.asObjectId _tenantId
+          defaultSort: &#39;name&#39;
+          defaultSelect: null
+          defaultCount: 20
+  
+      mongooseRestHelper.all @models.OauthApp,settings,options, cb
+  
+  ```
    *&#47;
   all: function(model, settings, options, cb) {
     var baseQuery, defaultCount, defaultSelect, defaultSort, k, v;
@@ -293,7 +315,7 @@
 </dl>
     </div>
     <div id='footer'>
-  August 12, 14 14:04:38 by
+  August 12, 14 14:18:19 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
