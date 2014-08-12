@@ -1,8 +1,7 @@
 [![Build Status](https://travis-ci.org/codedoctor/mongoose-rest-helper.svg?branch=master)](https://travis-ci.org/codedoctor/mongoose-rest-helper)
-
 [![Coverage Status](https://img.shields.io/coveralls/codedoctor/mongoose-rest-helper.svg)](https://coveralls.io/r/codedoctor/mongoose-rest-helper)
-
 [![NPM Version](http://img.shields.io/npm/v/mongoose-rest-helper.svg)](https://www.npmjs.org/package/mongoose-rest-helper)
+[![Dependency Status](https://gemnasium.com/codedoctor/mongoose-rest-helper.svg)](https://gemnasium.com/codedoctor/mongoose-rest-helper)
 
 
 mongoose-rest-helper

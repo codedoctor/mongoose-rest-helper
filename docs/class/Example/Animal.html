@@ -28,37 +28,15 @@
       <h1>
         Class:
         Example.Animal
-        <span class='note title'>Abstract</span>
-        <span class='deprecated note title'>Deprecated</span>
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>node_modules&#47;codo&#47;spec&#47;_templates&#47;example&#47;src&#47;animal.coffee</td>
+          <td>node_modules&#47;grunt-codo&#47;test&#47;fixtures&#47;default&#47;animal.coffee</td>
         </tr>
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <div class='deprecated note'>
-    <strong>Deprecated.</strong>
-    This class is not used anymore 
-  </div>
-  <div class='abstract note'>
-    <strong>
-      This
-      class
-      is abstract.
-    </strong>
-    Each animal implementation must inherit from {Animal} 
-  </div>
-  <div class='note todo'>
-    <strong>TODO:</strong>
-    Provide more examples 
-  </div>
-  <div class='note'>
-    <strong>Note:</strong>
-    This is not used for codo, its purpose is to show all possible tags within a class. 
-  </div>
   <p>Base class for all animals.</p>
   <div class='examples'>
     <h3>Examples:</h3>
@@ -66,33 +44,11 @@
       How to subclass an animal
     </h4>
     <pre><code class='coffeescript'>class Lion extends Animal
-  move: (direction, speed): -&gt;</code></pre>
+  move: (direction, speed) -&gt;</code></pre>
   </div>
 </div>
 <div class='tags'>
-  <h3>Author:</h3>
-  <ul class='author'>
-    <li>
-      Michael Kessler 
-    </li>
-  </ul>
-  <h3>Since:</h3>
-  <ul class='since'>
-    <li>
-      0.1.0 
-    </li>
-  </ul>
-  <h3>Version:</h3>
-  <ul class='version'>
-    <li>
-      0.2.0 
-    </li>
-  </ul>
 </div>
-      <h2>Direct Known Subclasses</h2>
-      <p class='children'>
-        <a href='../../class/Example/Animal.Lion.html'>Example.Animal.Lion</a>
-      </p>
       <h2>Variables Summary</h2>
       <dl class='constants'>
   <dt id='ANSWER-variable'>
@@ -108,21 +64,6 @@
 </div>
   </dd>
 </dl>
-      <h2>Class Method Summary</h2>
-      <ul class='summary'>
-  <li>
-    <span class='signature'>
-      <a href='#enterArk-static'>
-        .
-(Boolean)
-<b>enterArk</b><span>()</span>
-      </a>
-    </span>
-    <span class='desc'>
-      Moves all animal into the ark. 
-    </span>
-  </li>
-</ul>
       <h2>Instance Method Summary</h2>
       <ul class='summary'>
   <li>
@@ -137,50 +78,7 @@
       Move the animal. 
     </span>
   </li>
-  <li deprecated>
-    <span class='signature'>
-      <a href='#copulate-dynamic'>
-        #
-(Boolean)
-<b>copulate</b><span>(animal)</span>
-      </a>
-    </span>
-    <span class='bound note title'>Bound</span>
-    <span class='note private title'>Private</span>
-    <span class='deprecated note title'>Deprecated</span>
-    <span class='desc'>
-      <strong>Deprecated.</strong>
-      Do not copulate 
-    </span>
-  </li>
 </ul>
-      <h2>Class Method Details</h2>
-      <div class='methods'>
-  <div class='method_details'>
-    <p class='signature' id='enterArk-static'>
-      .
-(Boolean)
-<b>enterArk</b><span>()</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>Moves all animal into the ark.</p>
-</div>
-<div class='tags'>
-  <h3>Returns:</h3>
-  <ul class='return'>
-    <li>
-      <span class='type'></span>
-      (
-        <tt>Boolean</tt>
-      )
-      &mdash;
-      <span class='desc'>true when all in Ark </span>
-    </li>
-  </ul>
-</div>
-  </div>
-</div>
       <h2>Constructor Details</h2>
       <div class='methods'>
   <div class='method_details'>
@@ -191,10 +89,6 @@
       <br>
     </p>
     <div class='docstring'>
-  <div class='note todo'>
-    <strong>TODO:</strong>
-    Clean up 
-  </div>
   <p>Construct a new animal.</p>
 </div>
 <div class='tags'>
@@ -234,14 +128,6 @@
       <br>
     </p>
     <div class='docstring'>
-  <div class='abstract note'>
-    <strong>
-      This
-      method
-      is abstract.
-    </strong>
-    
-  </div>
   <p>Move the animal.</p>
   <div class='examples'>
     <h3>Examples:</h3>
@@ -293,75 +179,10 @@
   </ul>
 </div>
   </div>
-  <div class='method_details'>
-    <p class='signature' id='copulate-dynamic'>
-      #
-(Boolean)
-<b>copulate</b><span>(animal)</span>
-      <span class='bound note'>Bound</span>
-      <span class='note private'>Private</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <div class='deprecated note'>
-    <strong>Deprecated.</strong>
-    Do not copulate 
-  </div>
-  <div class='note'>
-    <strong>Note:</strong>
-    Don&#39;t take it seriously 
-  </div>
-  <p>Copulate another animal.</p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>animal</span>
-      <span class='type'>
-        (
-          <tt>Animal</tt>
-        )
-      </span>
-      &mdash;
-      <span class='desc'>the partner animal </span>
-    </li>
-  </ul>
-  <h3>Returns:</h3>
-  <ul class='return'>
-    <li>
-      <span class='type'></span>
-      (
-        <tt>Boolean</tt>
-      )
-      &mdash;
-      <span class='desc'>true when success </span>
-    </li>
-  </ul>
-  <h3>Author:</h3>
-  <ul class='author'>
-    <li>
-      Michael Kessler 
-    </li>
-  </ul>
-  <h3>Since:</h3>
-  <ul class='since'>
-    <li>
-      0.1.0 
-    </li>
-  </ul>
-  <h3>Version:</h3>
-  <ul class='version'>
-    <li>
-      0.2.0 
-    </li>
-  </ul>
-</div>
-  </div>
 </div>
     </div>
     <div id='footer'>
-  August 03, 14 08:36:43 by
+  August 12, 14 13:40:00 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>

@@ -1,0 +1,1 @@
+window.searchData = [{"t":"src/index.coffee","p":"file/src/index.coffee.html"},{"t":"README.md","p":"extra/README.md.html"}]
