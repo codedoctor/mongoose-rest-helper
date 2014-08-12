@@ -14,6 +14,66 @@ How to get started:
 
 npm install mongoose-rest-helper
 
+## Usage
+
+The following illustrates a typical use case where we map CRUD functions
+to the mongoose-rest-helper. This is verbose, you could easily create this
+for all your models. 
+
+```coffeescript
+
+mongooseRestHelper = require 'mongoose-rest-helper'
+
+module.exports = class RoleMethods
+  UPDATE_EXCLUDEFIELDS = ['_id']
+
+  constructor:(@model) ->
+```
+Return all objects (with pagination, and scoping through accountId)
+```coffeescript
+  all: (accountId,options = {},cb = ->) =>
+    return cb new Error "accountId parameter is required." unless accountId
+
+    settings = 
+        baseQuery:
+          accountId : mongooseRestHelper.asObjectId accountId
+        defaultSort: 'name'
+        defaultSelect: null
+        defaultCount: 1000
+    mongooseRestHelper.all @model,settings,options, cb
+
+```
+Get an entity for it's id
+```coffeescript
+  get: (id,options = {}, cb = ->) =>
+    return cb new Error "id parameter is required." unless id
+    mongooseRestHelper.getById @model,id,null,options, cb
+
+```
+Destroy an entity
+```coffeescript
+  destroy: (id, options = {}, cb = ->) =>
+    return cb new Error "id parameter is required." unless id
+    settings = {}
+    mongooseRestHelper.destroy @model,id, settings,{}, cb
+
+```
+Create an entity
+```coffeescript
+  create:(accountId,objs = {}, options = {}, cb = ->) =>
+    return cb new Error "accountId parameter is required." unless accountId
+    settings = {}
+    objs.accountId = mongooseRestHelper.asObjectId accountId
+    mongooseRestHelper.create @model,settings,objs,options,cb
+
+```
+Update an entity
+```coffeescript
+  patch: (id, obj = {}, options = {}, cb = ->) =>
+    settings =
+      exclude : UPDATE_EXCLUDEFIELDS
+    mongooseRestHelper.patch @model,id, settings, obj, options, cb
+```
 
 ## Stuff
 

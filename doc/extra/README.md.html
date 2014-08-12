@@ -40,7 +40,43 @@
 <a href="https://gemnasium.com/codedoctor/mongoose-rest-helper"><img src="https://gemnasium.com/codedoctor/mongoose-rest-helper.svg" alt="Dependency Status"></a>
 <a href="https://www.npmjs.org/package/mongoose-rest-helper"><img src="http://img.shields.io/npm/dm/mongoose-rest-helper.svg" alt="NPM Downloads"></a>
 <a href="https://github.com/codedoctor/mongoose-rest-helper/issues"><img src="http://img.shields.io/github/issues/codedoctor/mongoose-rest-helper.svg" alt="Issues"></a>
-<a href="http://coffeedoc.info/github/codedoctor/mongoose-rest-helper"><img src="http://img.shields.io/badge/API-Documentation-ff69b4.svg" alt="API Documentation"></a></p><h2 id="mongoose-rest-helper">mongoose-rest-helper</h2><p>Provides some convenience functions that can bridge mongoose and your REST endpoints. Nothing special really.</p><p>How to get started:</p><p>npm install mongoose-rest-helper</p><h2 id="stuff">Stuff</h2>
+<a href="http://coffeedoc.info/github/codedoctor/mongoose-rest-helper"><img src="http://img.shields.io/badge/API-Documentation-ff69b4.svg" alt="API Documentation"></a></p><h2 id="mongoose-rest-helper">mongoose-rest-helper</h2><p>Provides some convenience functions that can bridge mongoose and your REST endpoints. Nothing special really.</p><p>How to get started:</p><p>npm install mongoose-rest-helper</p><h2 id="usage">Usage</h2><p>The following illustrates a typical use case where we map CRUD functions
+to the mongoose-rest-helper. This is verbose, you could easily create this
+for all your models. </p><pre><code class="lang-coffeescript">
+mongooseRestHelper = require &#39;mongoose-rest-helper&#39;
+
+module.exports = class RoleMethods
+  UPDATE_EXCLUDEFIELDS = [&#39;_id&#39;]
+
+  constructor:(@model) -&gt;
+</code></pre><p>Return all objects (with pagination, and scoping through accountId)</p><pre><code class="lang-coffeescript">  all: (accountId,options = {},cb = -&gt;) =&gt;
+    return cb new Error &quot;accountId parameter is required.&quot; unless accountId
+
+    settings = 
+        baseQuery:
+          accountId : mongooseRestHelper.asObjectId accountId
+        defaultSort: &#39;name&#39;
+        defaultSelect: null
+        defaultCount: 1000
+    mongooseRestHelper.all @model,settings,options, cb
+</code></pre><p>Get an entity for it&#39;s id</p><pre><code class="lang-coffeescript">  get: (id,options = {}, cb = -&gt;) =&gt;
+    return cb new Error &quot;id parameter is required.&quot; unless id
+    mongooseRestHelper.getById @model,id,null,options, cb
+</code></pre><p>Destroy an entity</p><pre><code class="lang-coffeescript">  destroy: (id, options = {}, cb = -&gt;) =&gt;
+    return cb new Error &quot;id parameter is required.&quot; unless id
+    settings = {}
+    mongooseRestHelper.destroy @model,id, settings,{}, cb
+</code></pre><p>Create an entity</p><pre><code class="lang-coffeescript">  create:(accountId,objs = {}, options = {}, cb = -&gt;) =&gt;
+    return cb new Error &quot;accountId parameter is required.&quot; unless accountId
+    settings = {}
+    objs.accountId = mongooseRestHelper.asObjectId accountId
+    mongooseRestHelper.create @model,settings,objs,options,cb
+</code></pre><p>Update an entity</p><pre><code class="lang-coffeescript">  patch: (id, obj = {}, options = {}, cb = -&gt;) =&gt;
+    settings =
+      exclude : UPDATE_EXCLUDEFIELDS
+    mongooseRestHelper.patch @model,id, settings, obj, options, cb
+</code></pre>
+<h2 id="stuff">Stuff</h2>
 <ul>
 <li>npm install</li>
 <li>grunt watch</li>
@@ -61,7 +97,7 @@ further details.</p>
       </div>
     </div>
     <div id='footer'>
-  August 12, 14 14:57:13 by
+  August 12, 14 15:12:14 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
