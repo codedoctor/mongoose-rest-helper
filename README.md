@@ -34,7 +34,7 @@ npm install mongoose-rest-helper
 
 ## Copyright
 
-Copyright (c) 2013 Martin Wawrusch See LICENSE for
+Copyright (c) 2013-2014 Martin Wawrusch See LICENSE for
 further details.
 
 

@@ -1,19 +1,42 @@
 ###
-Smart helper functions.
+Smart helper functions
 ###
 
 _ = require 'underscore'
 asObjectId = require './as-objectId'
+Hoek = require 'hoek'
 mongoose = require "mongoose"
 ObjectId = mongoose.Types.ObjectId
 {isObjectId} = require 'mongodb-objectid-helper'
-PageResult = require './page-result'
-Hoek = require 'hoek'
+
 i18n = require './i18n'
+PageResult = require './page-result'
 
 module.exports =
   ###
-  Query for a paged result against a collection.
+  Query against a collection, returns a paginated result.
+  @param model [Object] a mongoose model. Required.
+  @param settings [Object] settings to specify the nature of the query.
+  @param options [Object] consumer overrides for your settings. See below for an explanation of this.
+  @param cb [Function,null] callback invoked after completion.
+  @example
+  This example implements a convenience function that adds a tenant _id to all queries.
+  See how options are passed to this method, and settings are used to configure it.
+  ```coffeescript
+  myClient = 
+    all:(_tenantId,options = {}, cb = ->) =>
+      return cb new Error "_tenantId parameter is required." unless _tenantId
+
+      settings = 
+          baseQuery:
+            _tenantId : mongooseRestHelper.asObjectId _tenantId
+          defaultSort: 'name'
+          defaultSelect: null
+          defaultCount: 20
+
+      mongooseRestHelper.all @models.OauthApp,settings,options, cb
+
+  ```
   ###
   all:(model,settings = {},options = {}, cb = ->) ->
     Hoek.assert model,i18n.assertModuleRequired
