@@ -60,7 +60,12 @@ module.exports =
       return cb err if err
 
       query = model.find options.where
-      query.select options.select if options.select and options.select.length > 0
+
+      if _.isString(options.select) and options.select.length > 0
+        query.select options.select 
+      else if _.isObject(options.select) and _.keys(options.select).length > 0
+        query.select options.select 
+
       options.offset ||= 0
       options.count ||= defaultCount
       query.setOptions { skip: options.offset, limit: options.count}
