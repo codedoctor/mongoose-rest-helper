@@ -1,8 +1,12 @@
 {
-  "author": "Martin Wawrusch <martin@wawrusch.com> (http://martinatsunset.com)",
+  "author": {
+    "name": "Martin Wawrusch",
+    "email": "martin@wawrusch.com",
+    "url": "http://martinatsunset.com"
+  },
   "name": "mongoose-rest-helper",
   "description": "A bunch of helpers used to simplify rest development.",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
@@ -17,16 +21,16 @@
     "mongoose"
   ],
   "scripts": {
-    "test": "node_modules/.bin/grunt testandcoverage",
-    "docs": "node_modules/.bin/codo -i ./src -o ./docs"
+    "test": "grunt testandcoverage",
+    "docs": "codo -i ./src -o ./docs"
   },
   "engines": {
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "hoek": "2.4.1",
+    "hoek": "2.10.0",
     "mongodb-objectid-helper": "0.2.0",
-    "underscore": "1.6.0"
+    "underscore": "1.7.0"
   },
   "peerDependencies": {
     "mongoose": ">=3.8.14"
@@ -35,22 +39,22 @@
     "async": "0.9.0",
     "blanket": "1.1.6",
     "codo": "2.0.9",
-    "coffee-script": "1.7.1",
+    "coffee-script": "1.8.0",
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",
     "grunt-codo": "0.2.0",
-    "grunt-contrib-coffee": "0.11.0",
+    "grunt-contrib-coffee": "0.12.0",
     "grunt-contrib-watch": "0.6.1",
     "grunt-env": "0.4.1",
     "grunt-mocha-cov": "0.3.0",
-    "grunt-mocha-test": "0.11.0",
+    "grunt-mocha-test": "0.12.4",
     "grunt-release": "0.7.0",
-    "grunt-shell": "0.7.0",
+    "grunt-shell": "1.1.1",
     "matchdep": "0.3.0",
-    "mocha": "1.21.4",
-    "mongoose": "3.8.14",
+    "mocha": "2.0.1",
+    "mongoose": "3.8.21",
     "mongoskin": "1.4.4",
-    "should": "4.0.4"
+    "should": "4.4.1"
   },
   "bugs": {
     "url": "http://github.com/codedoctor/mongoose-rest-helper/issues"
@@ -68,5 +72,27 @@
       ],
       "data-cover-never": "node_modules"
     }
-  }
+  },
+  "gitHead": "3b7eec80998bbe1cc5092104587843eded8ffd21",
+  "homepage": "https://github.com/codedoctor/mongoose-rest-helper",
+  "_id": "mongoose-rest-helper@1.0.2",
+  "_shasum": "392e89f563a63f7971ebd138456145e427507bf3",
+  "_from": "mongoose-rest-helper@1.0.2",
+  "_npmVersion": "1.4.21",
+  "_npmUser": {
+    "name": "mwawrusch",
+    "email": "martin@wawrusch.com"
+  },
+  "maintainers": [
+    {
+      "name": "mwawrusch",
+      "email": "martin@wawrusch.com"
+    }
+  ],
+  "dist": {
+    "shasum": "392e89f563a63f7971ebd138456145e427507bf3",
+    "tarball": "http://registry.npmjs.org/mongoose-rest-helper/-/mongoose-rest-helper-1.0.2.tgz"
+  },
+  "_resolved": "https://registry.npmjs.org/mongoose-rest-helper/-/mongoose-rest-helper-1.0.2.tgz",
+  "readme": "ERROR: No README data found!"
 }
