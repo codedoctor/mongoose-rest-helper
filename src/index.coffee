@@ -163,7 +163,7 @@ module.exports =
       cb = options 
       options = {}
 
-    model.findByIdAndUpdate { _id: asObjectId(id) }, { $set: obj}, cb
+    model.findByIdAndUpdate { _id: asObjectId(id) }, { $set: obj}, {new : true}, cb
 
   ###
   Converts a value to an object id. Safety precaution for queries.
