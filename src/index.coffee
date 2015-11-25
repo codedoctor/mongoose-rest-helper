@@ -74,6 +74,59 @@ module.exports =
         return cb err if err
         cb null, new PageResult(items || [], totalCount, options.offset, options.count)
 
+  allLean:(model,settings = {},options = {}, cb = ->) ->
+    Hoek.assert model,i18n.assertModuleRequired
+
+    baseQuery = settings.baseQuery || {}
+    defaultSort = settings.defaultSort || null
+    defaultSelect = settings.defaultSelect || null
+    defaultCount = settings.defaultCount || 20
+
+    if _.isFunction(options)
+      cb = options 
+      options = {}
+
+    options.where ||= {}
+    options.select ||= defaultSelect
+
+    for k, v of baseQuery
+      options.where[k] = v
+
+    model.count options.where,(err, totalCount) ->
+      return cb err if err
+
+      query = model.find options.where
+
+      if _.isString(options.select) and options.select.length > 0
+        query.select options.select 
+      else if _.isObject(options.select) and _.keys(options.select).length > 0
+        query.select options.select 
+
+      options.offset ||= 0
+      options.count ||= defaultCount
+      query.setOptions { skip: options.offset, limit: options.count}
+      query.sort options.sort || defaultSort
+      query.lean().exec (err, items) ->
+        return cb err if err
+        cb null, new PageResult(items || [], totalCount, options.offset, options.count)
+
+  count:(model,settings = {},options = {}, cb = ->) ->
+    Hoek.assert model,i18n.assertModuleRequired
+
+    baseQuery = settings.baseQuery || {}
+
+    if _.isFunction(options)
+      cb = options 
+      options = {}
+
+    options.where ||= {}
+
+    for k, v of baseQuery
+      options.where[k] = v
+
+    model.count options.where,(err, totalCount) ->
+      return cb err if err
+      return cb null, totalCount
 
   ###
   Returns a single object through the id
@@ -93,6 +146,22 @@ module.exports =
     query = model.findOne _id : asObjectId(id)
     query = query.select(options.select) if options.select && options.select.length > 0
     query.exec cb
+
+  getByIdLean: (model, id,settings = {}, options = {}, cb = ->) ->
+    Hoek.assert model,i18n.assertModuleRequired
+    Hoek.assert id,i18n.assertIdRequired
+
+    defaultSelect = settings.defaultSelect || null
+
+    if _.isFunction(options)
+      cb = options 
+      options = {}
+
+    options.select ||= defaultSelect
+
+    query = model.findOne _id : asObjectId(id)
+    query = query.select(options.select) if options.select && options.select.length > 0
+    query.lean().exec cb
 
   ###
   Returns a single object base on query
@@ -118,6 +187,29 @@ module.exports =
     query = query.select(options.select) if options.select && options.select.length > 0
     query.exec cb
 
+  ###
+  Returns a single object base on query
+  ###
+  getOneLean: (model,settings = {}, options = {}, cb = ->) ->
+    Hoek.assert model,i18n.assertModuleRequired
+
+    defaultSelect = settings.defaultSelect || null
+    baseQuery = settings.baseQuery || {}
+
+
+    if _.isFunction(options)
+      cb = options 
+      options = {}
+
+    options.where ||= {}
+    options.select ||= defaultSelect
+
+    for k, v of baseQuery
+      options.where[k] = v
+
+    query = model.findOne options.where
+    query = query.select(options.select) if options.select && options.select.length > 0
+    query.lean().exec cb
   ###
   Completely removes an element.
   @TODO We can add a fast mode later that does not query the item first.
