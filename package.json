@@ -6,7 +6,7 @@
   },
   "name": "mongoose-rest-helper",
   "description": "A bunch of helpers used to simplify rest development.",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
